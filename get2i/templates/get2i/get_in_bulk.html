@@ -1,0 +1,118 @@
+{% extends 'get2i/base.html' %}
+{% block navbar %}
+{% load static %}
+
+    <style>
+        .get_now_btn{
+            border-radius: 50px;
+            width: 100px;
+            border: 2px solid white;
+        }
+        .borderless td, .borderless th {
+            border: none;
+        }
+    @media(max-width: 700px){
+        table{
+            overflow: auto;
+        }
+    }
+    </style>
+    <div class="col-md-12 mx-auto text-center" style="background: linear-gradient(to right, #4A00E0,#8E2DE2, #8E2DE2, #4A00E0);">
+        <div class="container mx-auto text-center" style="padding: 70px;">
+            <span style="font-size: 2rem; font-family: 'Playfair Display'; font-weight: 900;">GET BULK FOLLOWERS</span><br>
+            <span style="font-weight: 500; font-size: 1rem; font-family: 'Playfair Display';">
+                It's The Only Genuine Method Of Getting Instant Followers For Ever </span>
+        </div>
+    </div>
+    <div class="col-md-12 mx-auto" style="background: rgb(246,246,246); font-family: 'Work Sans'; font-weight: 900;">
+        <div class="container mx-auto text-center" style="padding: 30px" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-delay="50">
+            <div style="padding: 50px; color: black;"><h1><b>Pricing(# Per Post)</b></h1></div>
+            <div class="row">
+                <div class="container" style="background: white; padding: 20px; border-radius: 10px;">
+                    <div class="table-responsive-xl">
+                    <table class="text-center mx-auto table borderless" style="font-size: 20px;">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Followers</th>
+                            <th scope="col">Likes</th>
+                            <th scope="col">Comments</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="color: #4A00E0">
+                            <th scope="row">1</th>
+                            <td>50</td>
+                            <td>50</td>
+                            <td>1</td>
+                            <td>50$</td>
+                        </tr>
+                        <tr style="color: #00b5ff">
+                            <th scope="row">2</th>
+                            <td>100</td>
+                            <td>100</td>
+                            <td>1</td>
+                            <td>100$</td>
+                        </tr>
+                        <tr style="color: #00ffb5">
+                            <th scope="row">3</th>
+                            <td>200</td>
+                            <td>200</td>
+                            <td>1</td>
+                            <td>200$</td>
+                        </tr>
+                        <tr style="color: #ff0048">
+                            <th scope="row">4</th>
+                            <td>300</td>
+                            <td>300</td>
+                            <td>1</td>
+                            <td>300$</td>
+                        </tr>
+                        <tr style="color: #ffa300">
+                            <th scope="row">5</th>
+                            <td>400</td>
+                            <td>400</td>
+                            <td>1</td>
+                            <td>400$</td>
+                        </tr>
+                        <tr style="color: #002aff">
+                            <th scope="row">6</th>
+                            <td>500</td>
+                            <td>500</td>
+                            <td>1</td>
+                            <td>500$</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><br><br><br>
+    </div>
+    <div class="col-md-12" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000" data-aos-delay="50">
+        <div class="col-md-10 img1 mx-auto text-center txt_row" style="color: black; font-size: 20px; margin: 50px;" >
+            <p class="text-left text-1" style="font-weight: 500; ">We're Working On The Packages Right Now And We Hope It Might Be Available Next Month With :-
+                </p>
+                <ul class="mr-auto text-left" style="">
+                    <li>Better Prices</li>
+                    <li>More Followers</li>
+                    <li>Faster Following Rate</li>
+                    <li>More Followers In One Click</li>
+                    <li>Automated Social Worker</li>
+                    <li>And Many Other New Features...</li>
+                </ul><br><br>
+            <p class="text-center text-1" style="font-weight: 600; ">We Need Your Help To Be <span style="color: #4A00E0;">Encouraged, Enthusiastic & Motivated</span></p>
+            <a href="{% url 'index' %}#share">Share Now</a>
+        </div>
+    </div>
+    <hr>
+    <p class="mx-auto text-center" style="color: black; font-size: 1em;">Copyright ©2020 All Rights Reserved | Created By Get2F</p>
+    <script>
+        $(document).ready(function () {
+            f(c=0, del=50, $('.price1'), gap=1);
+            f(c=0, del=100, $('.price2'), gap=1);
+            f(c=0, del=150, $('.price3'), gap=1);
+        });
+    </script>
+{% endblock %}

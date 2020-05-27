@@ -1,0 +1,777 @@
+{% extends 'get2i/base.html' %}
+{% load static %}
+{% block navbar %}
+    {% csrf_token %}
+    <style>
+    .fa-twitter:hover{
+        transition: ease 1s;
+        color: #00b5ff !important;
+    }
+    .fa-facebook:hover{
+        transition: ease 1s;
+        color: #005eff !important;
+    }
+    .fa-linkedin:hover{
+        transition: ease 1s;
+        color: blue !important;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    .progress{
+        height: 30px;
+        border-radius: 50px;
+        background-color: rgba(225, 225, 225, 0.5);
+    }
+    .progress-bar{
+        padding: 20px 0px;
+        background-color: #ff253a;
+    }
+    .progress-bar h3{
+        font-size: 1.3rem;
+        color: white;
+        font-weight: 700;
+        font-family: "Josefin Sans";
+    }
+    .txt_grad{
+        color: #4A00E0;
+    }
+    @media(max-width: 1200px){
+        .txt_row{
+            text-align: center;
+            margin: -30px 0px 0px 0px !important;
+            margin-top: -30px !important;
+        }
+    }
+    @media(max-width: 500px){
+        .img2{
+            width: 320px !important;
+        }
+        .fp{
+            height: 300px !important;
+        }
+        .overlay{
+            height: 500px !important;
+        }
+        .col-md-4{
+            margin: 5px !important;
+        }
+        #bulk{
+            display: none;
+        }
+        .img1{
+            margin-top: 200px !important;
+        }
+        .txt_row{
+            text-align: center;
+            margin: 0px !important;
+        }
+    }
+    @media(max-width: 1025px){
+        .col-md-4{
+            margin: 5px !important;
+        }
+        #bulk{
+            display: none;
+        }
+        .img1{
+            margin-top: 200px !important;
+        }
+        .txt_row{
+            text-align: center;
+            margin: 0px !important;
+        }
+    }
+    .btn{
+        background: linear-gradient(to right, #4A00E0, #8E2DE2);
+        border: 2px solid white;
+        border-radius: 50px;
+        width: 150px;
+        color: white;
+        padding: 10px !important;
+    }
+    .btn:hover, .btn:focus{
+        transition: ease 1s;
+        border: 2px solid white;
+        outline: none;
+        color: black;
+    }
+    .btn:focus,.btn:active {
+        outline: none !important;
+        box-shadow: none;
+    }
+    .count1, .count2, .count3, .count4{
+        font-size: 2rem;
+        color: white;
+        font-weight: 700;
+    }
+    .c1:hover, .c2:hover, .c3:hover{
+        transition: ease 1s;
+        cursor: pointer;
+        border: 2px solid blue;
+    }
+    div.overlay{
+        z-index: 2;
+        width: 100%;
+        height: 700px;
+        position: absolute;
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.15);
+        {#background-color: rgba(206, 206, 206, 0.15);#}
+        backdrop-filter: blur(12px);
+        color: #fff;
+    }
+    .fc1{
+        border: 2px solid black;
+        width: 100%;
+        height: 70px;
+        color: #4A00E0;
+        {#background: linear-gradient(to right, #4A00E0, #8E2DE2);#}
+        background: transparent;
+    }
+    .fc1::placeholder{
+        color: black;
+        font-size: 1rem;
+    }
+    .form-group{
+        background: transparent;
+    }
+    .question_con{
+        padding: 20px; background: white; border-radius: 5px;
+        margin: 5px;
+        font-size: 20px;
+        font-family: 'Work Sans';
+    }
+    .question_con p{
+        font-size: 15px;
+    }
+    .question_con h4{
+        font-size: 20px;
+    }
+    .fa{
+        cursor: pointer;
+    }
+    .fa-chevron-down, .fa-chevron-up{
+        color: #4A00E0;
+    }
+    .borderless td{
+        border: none;
+    }
+    </style>
+    <script>
+        function input_bg() {
+            $('.fc1').css({'background': 'linear-gradient(to right, #4A00E0, #8E2DE2)', 'font-size': '1.5rem', 'color': 'white', 'box-shadow': 'none', 'border': '2px solid white'})
+        }
+    </script>
+    <div class="overlay"></div>
+    <div class="col-md-12 animated fadeIn container mx-auto text-center justify-content-center" style="position:absolute;">
+        <div class="container mx-auto text-center" style="padding: 0px 0px 0px 0px;">
+            <img class="mx-auto text-center" src="{% static 'undraw_pair_programming_njlp.svg' %}" style="max-width: 100%; height: 500px; display: block;" alt="">
+        </div>
+    </div>
+    <!--Main Part-->
+    <div class="animated fadeIn fp mx-auto text-center justify-content-center" style="height: 500px; color: black; margin: 150px 0px 150px 0px; left: 0; position: relative; z-index: 9;" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50">
+        <div class="col-sm-12 first_part mx-auto text-center">
+            <h2 style="color: red;" class="error_txt"></h2>
+{#            <h1 style="color: white">Get 2 Insta</h1>#}
+            <form method="post" class="col-md-6 followed mx-auto text-center" style="top: 120px;">{% csrf_token %}
+                <div class="form-group mr-auto text-left">
+                    <label for="uname"></label>
+                    <input required id="uname" name="username" onclick="input_bg();" style="padding: 25px; border-radius: 50px" class="form-control fc1" type="text" placeholder="Type Your Insta Username"/>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">GetFollowers</button>
+            </form>
+        </div>
+        <div class="col-sm-12 progress-part" style="left: 0; display: none">
+            <h1 class="follow_count"></h1>
+            <h1 class="update_text"></h1>
+            <div class="col-md-6 mx-auto text-center" style="padding: 40px;">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" id="myBar" role="progressbar"
+                  aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                    <h3 class="progress-count"></h3>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 wantmore-part" style="left: 0; display: none;">
+            <h1 style="color: #4A00E0; font-weight: 700;" class="you_got"></h1><br>
+            <div class="col-md-7 mx-auto text-center" style="padding: 40px;">
+                <h1>Want More Genuine Followers</h1><br>
+                <button onclick="container_works(more_part, progress_part); get_followers();" class="btn_more_followers btn btn-primary">Click Here</button>
+            </div>
+        </div>
+    </div>
+    <!--Working Style-->
+    <div class="container" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50">
+            <div class="row">
+                <div class="col-md-4 mx-auto text-center" style="padding: 20px; margin: 5px; color: black;">
+                    <div style="padding: 20px; color: #4A00E0;"><span style="font-size: 3.5rem;" class="fab fa-instagram"></span></div>
+                    <h3>Instagram</h3>
+                    <p>Bot Logged In</p>
+                </div>
+                <div class="col-md-4 mx-auto text-center" style="padding: 20px; margin: 5px; color: black;">
+                    <div style="padding: 20px; color: #4A00E0;"><span style="font-size: 3.5rem;" class="fas fa-robot"></span></div>
+                    <h3>Our Bot</h3>
+                    <p>Followed</p>
+                </div>
+                <div class="col-md-4 mx-auto text-center" style="padding: 20px; margin: 5px; color: black;">
+                    <div style="padding: 20px; color: #4A00E0;"><span style="font-size: 3.5rem;" class="fa fa-user-plus"></span></div>
+                    <h3>You</h3>
+                    <p>You Got Follower</p>
+                </div>
+            </div>
+        </div><Br><br><br><br><br><br>
+    <!--Counting-->
+    <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50" class="col-md-12 mx-auto text-center">
+        <div class="container mx-auto text-center row" style="background: linear-gradient(to right, #4A00E0, #8E2DE2); padding: 50px; border-radius: 20px" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50">
+            <div class="col-md-3" style="padding: 10px;">
+                <span class="count2"></span>
+                <h5>Peoples</h5>
+            </div>
+            <div class="col-md-3" style="padding: 10px;">
+                <span class="count1"></span>
+                <h5>Followers</h5>
+            </div>
+            <div class="col-md-3" style="padding: 10px;">
+                <span class="count3"></span>
+                <h5>Likes</h5>
+            </div>
+            <div class="col-md-3" style="padding: 10px;">
+                <span class="count4"></span>
+                <h5>Comments</h5>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    f(c=0, del=1500, count1, gap=8);
+                    f(c=0, del=3000, count2, gap=5);
+                    f(c=0, del=3000, count3, gap=10);
+                    f(c=0, del=500, count4, gap=8);
+                });
+            </script>
+        </div>
+    </div><br><br><br><br><Br>
+    <!--Why We Are Doing This-->
+    <div class="container" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50">
+            <div class="row">
+                <div class="col-md-6" style="padding: 50px 0px 0px 0px;">
+                    <div class="img2" style="width: 500px; height: auto;"><img alt="" src="{% static 'undraw_visual_data_b1wx.svg' %}"
+                              style="max-width: 100%; height: auto; display: block;"/></div>
+                </div>
+                <div class="col-md-6" style="font-family: 'Work Sans'; font-size: 15px; line-height: 2;">
+                    <div class="btns mx-auto text-center"  style="color: black;">
+                        <button class="btn btn-primary what_we_do_btn">What We Do</button>
+                        <button class="btn btn-primary what_we_do_btn">Our Mission</button>
+                        <button class="btn btn-primary what_we_do_btn">Our Goal</button>
+                        <br><br>
+                        <div class="txt_w text-left">
+                            <h3 style="font-weight: 900;">Offering Real & Genuine Followers</h3>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In today's time their is a big craze in socializing ask me what peoples are not doing to get followers.
+                                Many of them begging from other on insta, fb or on other platforms to just get liked, commented or
+                                followed by others. So, after a metting between our group, we thought of creating a platform in
+                                which our social media accounts will be used to fulfill the needs of people so that they will not
+                                beg or <b>use any type of spaming sites available on internet</b> which capture their password
+                                and use their accounts without their permission.</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            We're Continuosly Working On Making It More Secure But Overall You Can Get Free & Genuine Followers
+                            For Ever Without Any Password.<br>
+                            <button class="btn what_we_do_btn btn-primary">Contact Us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><Br><br><br>
+    <!--Why Choose Us-->
+    <div class="col-md-12" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50" style="background: rgb(246,246,246)">
+    <div class="container mx-auto text-center" style="color: black;">
+        <br><br><br><Br><br>
+        <h1 style="font-weight: 900;">Why Choose Us</h1>
+        <p style="color: grey;">Even the all-powerful Pointing has no control about the blind <br>texts it is an almost unorthographic.</p>
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row" style="box-shadow: 0px 0px 10px #4c4c4c; border: 2px solid #4A00E0;margin: 5px; padding: 10px; background: white; border-radius: 5px;">
+                    <div class="col-md-10 text-right" style="padding: 15px;">
+                        <h4 style="font-weight: 900;">Genuine Followers</h4>
+                        <p style="color: grey;">Real & Genuine Followers For Ever, For Life Time. Happy Socializing !</p>
+                    </div>
+                    <div class="col-md-2 text-left" style="padding: 30px 0px 0px 10px;">
+                        <i style="color: #8E2DE2; font-size: 3.2rem;" class="fa fa-user-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row" style="box-shadow: 0px 0px 10px #4c4c4c; border: 2px solid #4A00E0; margin: 5px; padding: 10px; background: white; border-radius: 5px;">
+                    <div class="col-md-2 text-left" style="padding: 30px 0px 0px 20px;">
+                        <i style="color: #8E2DE2; font-size: 3.5rem;" class="fa fa-chart-line"></i>
+                    </div>
+                    <div class="col-md-10 text-left" style="padding: 15px;">
+                        <h4 style="font-weight: 900;">Weekly Acitivities</h4>
+                        <p style="color: grey;">Accounts Owners Will Like, Comment And Repost Your Posts.</p>
+                    </div>
+                </div>
+            </div>
+        </div><Br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row" style="box-shadow: 0px 0px 10px #4c4c4c; border: 2px solid #4A00E0; margin: 5px; padding: 10px; background: white; border-radius: 5px;">
+                    <div class="col-md-10 text-right" style="padding: 15px;">
+                        <h4 style="font-weight: 900;">Automated Working Style</h4>
+                        <p style="color: grey;">Bots Are Working 24/7 For Providing You With Followers.</p>
+                    </div>
+                    <div class="col-md-2 text-left" style="padding: 30px 0px 0px 20px;">
+                        <i style="color: #8E2DE2;font-size: 3.2rem;" class="fa fa-magic"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row" style="box-shadow: 0px 0px 10px #4c4c4c; border: 2px solid #4A00E0; margin: 5px; padding: 10px; background: white; border-radius: 5px;">
+                    <div class="col-md-2 text-left" style="padding: 30px 0px 0px 20px;">
+                        <i style="color: #8E2DE2;font-size: 3.2rem;" class="fa fa-key"></i>
+                    </div>
+                    <div class="col-md-10 text-left" style="padding: 15px;">
+                        <h4 style="font-weight: 900;">No Password Needed</h4>
+                        <p style="color: grey;">No Password Needed, So You're Going To Be Fully Secured.</p>
+                    </div>
+                </div>
+            </div>
+        </div><Br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row" style="box-shadow: 0px 0px 10px #4c4c4c; border: 2px solid #4A00E0; margin: 5px; padding: 10px; background: white; border-radius: 5px;">
+                    <div class="col-md-10 text-right" style="padding: 15px;">
+                        <h4 style="font-weight: 900;">Highly Secured</h4>
+                        <p style="color: grey;">Expect Follow Counts We Don't Fetch Or Save Any Types Of Details From Your Account.</p>
+                    </div>
+                    <div class="col-md-2 text-left" style="padding: 30px 0px 0px 20px;">
+                        <i style="color: #8E2DE2;font-size: 3.2rem;" class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row" style="box-shadow: 0px 0px 10px #4c4c4c; border: 2px solid #4A00E0; margin: 5px; padding: 10px; background: white; border-radius: 5px;">
+                    <div class="col-md-2 text-right" style="padding: 30px 0px 0px 20px;">
+                        <i style="color: #8E2DE2;font-size: 3.2rem;" class="fa fa-user-edit"></i>
+                    </div>
+                    <div class="col-md-10 text-right" style="padding: 15px;">
+                        <h4 style="font-weight: 900;">Easy To Use</h4>
+                        <p style="color: grey;">You Just Need To Type Your Username And Rest Of The Work Will Be Automated.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+    </div>
+    </div><br><br><br><br><br>
+    <!--Ratings-->
+    <div class="container mx-auto text-center" style="padding: 30px;" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50">
+        <div class="container mx-auto text-center">
+            <h6 style="color: black;">CUSTOMER SAYS</h6>
+            <h1 style="color: black;"><b>Our Satisfied Users Says</b></h1>
+            <p style="color: grey;">Fantastic Accounts... Weekly Automatic Activities...<br> Unbelievable Fan Following... Fastest Followers Provider...</p>
+            <br><br><br><br><br>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="" style="padding: 20px 100px 20px 100px;"><img class="card-img-top" alt='' style="border-radius: 50%;" src="{% static 'person_3.jpg' %}"></div>
+                    <div class="card-body">
+                        <p style="color: grey;" class="card-text">Once Upon A Time, I Was In Need Of Followers And Somehow I Got This Site Which Really Provide You Life Time Followers With Weekly Activities.</p><br>
+                        <h5 style="color: black" class="card-title"><b>Terry Colby</b></h5>
+                        <a href="#" class="">@terry</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+               <div class="card">
+                    <div class="" style="padding: 20px 100px 20px 100px;"><img class="card-img-top" alt='' style="border-radius: 50%;" src="{% static 'person_4.jpg' %}"></div>
+                    <div class="card-body">
+                        <p style="color: grey;" class="card-text">Unbelievable I Really Can't Understand How They Do That but It Works Very Well. I Must Recommend Everynoe To Please Try.</p><br>
+                        <h5 style="color: black" class="card-title"><b>Tyrell Welick</b></h5>
+                        <a href="#" class="">@tyrell</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="" style="padding: 20px 100px 20px 100px;"><img class="card-img-top" alt='' style="border-radius: 50%;" src="{% static 'person_1.jpg' %}"></div>
+                    <div class="card-body">
+                        <p style="color: grey;" class="card-text">Just A Click & It Will Give You A Genuine Follower. I Think It Is The Only Site Who Is Provding This Service For Free Without Password.</p><br>
+                        <h5 style="color: black" class="card-title"><b>Elliot Alderson</b></h5>
+                        <a href="#" class="">@elliot</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <!--FAQS-->
+    <div class="col-md-12" style="background: rgb(246,246,246);" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50">
+        <div class="container mx-auto text-center" style="color: black;">
+            <br><br><br>
+            <h1 style="font-weight: 900; font-size: 2.5rem;">Frequently Asked Questions</h1><br>
+            <p style="color: grey">We're Very Happy To Answer Every Question For You.</p><br><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-left mx-auto">
+                        <div class="question_con">
+                            <h4>Are you going to hack our insta IDs</h4><hr>
+                            <p class="ans">That's the beauty of our site it takes only the username amnd provide you with real & genuine
+                            followers without password.</p>
+                        </div>
+                        <div class="question_con">
+                            <h4>Is It Any Type Of Hacking ?</h4><hr>
+                            <p class="ans">Nope, You should see this page for more details - <a href="{% url 'how_it_works' %}">Click Here.</a></p>
+                        </div>
+                        <div class="question_con">
+                            <h4>How Many Times I Can Use This Service ? &nbsp;<i onclick="q_open($('.ans4'), $('.down4'), $('.up4'));" class="fa fa-chevron-down down4"></i><i onclick="q_close($('.ans4'), $('.down4'), $('.up4'));" style="display: none;" class="up4 fa fa-chevron-up"></i></h4><hr>
+                            <p style="display: none;" class="ans4">Until you not get a message like - " Our Instagram accounts are outdated...blah blah blah "</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-left mx-auto">
+                        <div class="question_con">
+                            <h4>When we can get unlimited followers ? &nbsp;<i onclick="q_open($('.ans1'), $('.down1'), $('.up1'));" class="fa fa-chevron-down down1"></i><i onclick="q_close($('.ans1'), $('.down1'), $('.up1'));" style="display: none;" class="up1 fa fa-chevron-up"></i></h4><hr>
+                            <p style="display: none;" class="ans1">It is not possible from our side you have to support Us First LOL...</p>
+                        </div>
+                        <div class="question_con">
+                            <h4>Is It Totally Free &nbsp;<i onclick="q_open($('.ans2'), $('.down2'), $('.up2'));" class="fa fa-chevron-down down2"></i><i onclick="q_close($('.ans2'), $('.down2'), $('.up2'));" style="display: none;" class="up2 fa fa-chevron-up"></i></h4><hr>
+                            <p style="display: none;" class="ans2">Yes my dear friend it's totally free but if you wanna pay then contact me LOL</p>
+                        </div>
+                        <div class="question_con">
+                            <h4>Where do you people get those accounts ? &nbsp;<i onclick="q_open($('.ans3'), $('.down3'), $('.up3'));" class="fa fa-chevron-down down3"></i><i onclick="q_close($('.ans3'), $('.down3'), $('.up3'));" style="display: none;" class="up3 fa fa-chevron-up"></i></h4><hr>
+                            <p style="display:none;" class="ans3">They are all real & genuine accounts of people's who are contributing on this platform.</p>
+                        </div>
+                    </div>
+                    <script>
+                        function q_open(ans, dw, up) {
+                            ans.show('slow');
+                            dw.hide('slow');
+                            up.show('slow');
+                        }
+                        function q_close(ans, dw, up) {
+                            ans.hide('slow');
+                            up.hide('slow');
+                            dw.show('slow');
+                        }
+                    </script>
+                </div>
+            </div>
+        </div><br><br><br><br><br><br>
+    </div>
+    <br><br><br><br><br><br>
+    <!--Main Services-->
+    <div class="container" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img2" style="width: 500px;"><img style="max-width: 100%; height: auto; display: block;" src="{% static 'undraw_business_plan_5i9d.svg' %}" alt=""/></div><br>
+                <div class="" style="font-family: 'Work Sans'; color: black;">
+                    <h1 class="" style="font-weight: 900;">Our Main Services</h1>
+                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="ci_con col-sm-6 mx-auto text-center" style="margin: 5px;">
+                        <div class="ci2" style="border: 2px solid #0051ff; color: black; padding: 30px; border-radius: 5px;">
+                            <i style="color: #4A00E0; padding: 20px; font-size: 2.8rem;" class="fas fa-users"></i>
+                            <h3 class="heading">Influencers</h3>
+                            <p>Everyone wants to have a great fanbase for social media influecing.</p>
+                        </div>
+                    </div><br><br>
+                    <div class="ci_con col-sm-6 mx-auto text-center" style="margin: 5px;">
+                        <div class="ci2" style="border: 2px solid #0051ff; color: black; padding: 30px; border-radius: 5px;">
+                            <i style="color: #4A00E0; padding: 20px; font-size: 3rem;" class="fas fa-people-arrows"></i>
+                            <h3 class="heading">Fan Base</h3>
+                            <p>So, we are providing them with free followers without password.</p>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="ci_con col-sm-6 mx-auto text-center" style="margin: 5px;">
+                        <div class="ci2" style="border: 2px solid #0051ff; color: black; padding: 30px; border-radius: 5px;">
+                            <i style="color: #4A00E0; padding: 20px; font-size: 3rem;" class="fas fa-user-lock"></i>
+                            <h3 class="heading">Privacy</h3>
+                            <p>Fully secured platform on internet which works without password.</p>
+                        </div>
+                    </div><br><br>
+                    <div class="ci_con col-sm-6 mx-auto text-center" style="margin: 5px;">
+                        <div class="ci2" style="border: 2px solid #0051ff; color: black; padding: 30px; border-radius: 5px;">
+                            <i style="color: #4A00E0; padding: 20px; font-size: 3rem;" class="fas fa-address-card"></i>
+                            <h3 class="heading">Accounts</h3>
+                            <p>All instagram accounts which follows you are real & fully genuine.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><Br><br><br><Br><br><br>
+    <!--Packages-->
+    <div class="col-md-12" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50" style="background: rgb(246,246,246); font-family: 'Work Sans'; font-weight: 900;">
+        <div class="container mx-auto text-center" style="padding: 30px" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50">
+            <div style="padding: 50px; color: black;"><h1><b>Our Best Packages</b></h1></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center c1" style="background: white; border-radius: 20px; color: grey; padding: 20px;">
+                        <div style="padding: 20px;"><h3 style="color: grey"><b>Basic</b></h3></div>
+                        <div style="padding: 10px;"><h3 style="color: black"><b>$&nbsp;<spam class="price1"></spam></b></h3></div>
+                        <div style="padding: 10px;"><h3>Forever Followers</h3></div>
+                        <div style="padding: 10px;"><b style="color: black;">Get Weekly Activities</b></div>
+                        <div style="padding: 10px;"><b style="color: black;">50+ <span style="color: grey;">Followers</span></b></div>
+                        <div style="padding: 10px;"><b style="color: black;">50+ Likes <span style="color: grey;">Each Post</span></b></div>
+                        <div style="padding: 10px;"><b style="color: black;">1+ Comments <span style="color: grey;">Each Post</span></b></div>
+                        <div style="padding: 15px;"><button class="btn btn-primary">Get Now</button></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center c2" style="background: white; color: grey; padding: 20px; border-radius: 20px;">
+                        <div style="padding: 20px;"><h3 style="color: grey"><b>Standard</b></h3></div>
+                        <div style="padding: 10px;"><h3 style="color: black"><b>$&nbsp;<spam class="price2"></spam></b></h3></div>
+                        <div style="padding: 10px;"><h3>Forever Followers</h3></div>
+                        <div style="padding: 10px;"><b style="color: black;">Get Weekly Activities</b></div>
+                        <div style="padding: 10px;"><b style="color: black;">100+ <span style="color: grey;">Followers</span></b></div>
+                        <div style="padding: 10px;"><b style="color: black;">100+ Likes <span style="color: grey;">Each Post</span></b></div>
+                        <div style="padding: 10px;"><b style="color: black;">1+ Comments <span style="color: grey;">Each Post</span></b></div>
+                        <div style="padding: 15px;"><button class="btn btn-primary">Get Now</button></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center c3" style="background: white; color: grey; padding: 20px; border-radius: 20px;">
+                        <div style="padding: 20px;"><h3 style="color: grey"><b>Premium</b></h3></div>
+                        <div style="padding: 10px;"><h3 style="color: black"><b>$&nbsp;<spam class="price3"></spam></b></h3></div>
+                        <div style="padding: 10px;"><h3>Forever Followers</h3></div>
+                        <div style="padding: 10px;"><b style="color: black;">Get Weekly Activities</b></div>
+                        <div style="padding: 10px;"><b style="color: black;">200+ <span style="color: grey;">Followers</span></b></div>
+                        <div style="padding: 10px;"><b style="color: black;">200+ Likes <span style="color: grey;">Each Post</span></b></div>
+                        <div style="padding: 10px;"><b style="color: black;">1+ Comments <span style="color: grey;">Each Post</span></b></div>
+                        <div style="padding: 15px;"><button class="btn btn-primary">Get Now</button></div>
+                    </div>
+                </div>
+            </div>
+        </div><br><br><br>
+    </div>
+    <script>
+        $(document).ready(function () {
+            f(c=0, del=50, $('.price1'), gap=1);
+            f(c=0, del=100, $('.price2'), gap=1);
+            f(c=0, del=150, $('.price3'), gap=1);
+        });
+    </script>
+    <!--Contact US-->
+    <br><br><br><br>
+    <div class="container mx-auto text-center" data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000" data-aos-delay="50">
+        <h1 style="color: black; font-weight: 900;">Contact Us</h1>
+        <br><br>
+        <div class="row">
+            <div class="col-md-6" style="padding: 40px; color: black; font-family: 'Work Sans'">
+                <div class="table-responsive-xl">
+                    <table class="table borderless">
+                        <tr>
+                            <td><b>Address:</b></td>
+                            <td>198 West 22st <br>StreetSuite 721 New York NY 10016</td>
+                        </tr>
+                        <tr>
+                            <td><b>Phone:</b></td>
+                            <td>+1235&nbsp;2355&nbsp;98</td>
+                        </tr>
+                        <tr>
+                            <td><b>Email:</b></td>
+                            <td>info@get2insta.com</td>
+                        </tr>
+                        <tr>
+                            <td><b>Website:</b></td>
+                            <td>get2insta.com</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6" style="padding: 40px;">
+                <form class="form mx-auto text-left" method="post" action="{% url 'mail_us' %}">{% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input class="form-control" required name="name" placeholder="Your Name"/>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input class="form-control" required name="email" placeholder="Your Email"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" required name="subject" placeholder="Subject"/>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" required class="form-control" name="msg" maxlength="100" placeholder="Your Message..."></textarea>
+                    </div>
+                    <div class="form-group mx-auto text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <!--Share Now-->
+    <div class="mx-auto text-center justify-content-center col-md-12" style="background: linear-gradient(to right, #4A00E0, #8E2DE2, #8E2DE2); padding: 20px; color: white;" id="share">
+        <div style="margin: 50px;"><h1 style="font-weight: 800;">Help More Peoples To Get Free Services</h1>
+            <br><h1 style="font-weight: 800;">Share Now</h1></div>
+        <div class="row" style="padding: 0px 50px 0px 50px">
+            <div class="col-md-4 mx-auto text-center" style="padding: 5px;">
+                <a target="_target" href="https://www.linkedin.com/sharing/share-offsite/?url=get2insta.herokuapp.com"><i style="font-size: 4rem; color: white;" class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="col-md-4 mx-auto text-center" style="padding: 5px;">
+                <a target="_target" href="https://twitter.com/intent/tweet?url=get2insta.heorkuapp.com&text=Must Try Friends You're Gonna Love It All Process Work in Front Of Your Eye It's Awesome&hashtags=instagram, followers, free followers, real and genuine site"><i style="font-size: 4rem; color: white;" class="fab fa-twitter"></i></a>
+            </div>
+            <div class="col-md-4 mx-auto text-center" style="padding: 5px;">
+                <a target="_target" href="https://www.facebook.com/sharer.php?u=get2insta.herokuapp.com%2F"><i style="font-size: 4rem; color: white;" class="fab fa-facebook"></i></a>
+            </div>
+        </div><br><br>
+        <div class="mx-auto text-center">
+            <h5 style="font-weight: 800; color: white;">Thanks For Visiting US</h5><br>
+            <h5 style="font-weight: 800; color: white;">Hope, In Future We Can Build A Good Network With You People</h5><br>
+        </div><Br><hr>
+        <p style="font-size: 1em;">Copyright ©2020 All Rights Reserved | Created By Get2F</p>
+    </div>
+    <script>
+    var c, del, gap;
+    var count1 = $('.count1');
+    var count2 = $('.count2');
+    var count3 = $('.count3');
+    var count4 = $('.count4');
+    function container_works(first_con, second_con) {
+        first_con.fadeOut();
+        second_con.fadeIn();
+    }
+    function show(cls){
+        cls.css({'display':'block'});
+    }
+
+    function hide(cls){
+        cls.css({'display':'none'});
+    }
+    var i = 0;
+    var t = 0;
+    var first_part =  $('.first_part');
+    var progress_part = $('.progress-part');
+    var more_part = $('.wantmore-part');
+    var ad_part = $('.ad-part');
+    var post_username = [];
+    var urls = [];
+
+    $('.followed').on('submit', function (e) {
+        e.preventDefault();
+        $('.btn').prop("disabled", true);
+        let form_data = $('#uname').val();
+        post_username.pop();
+        post_username.push(form_data);
+        urls.pop();
+        url_1 = 'https://www.instagram.com/' + form_data;
+        urls.push(url_1);
+
+        $.ajax({
+            url: '{% url 'follow_count' %}',
+            type: 'POST',
+            data: {
+                url_1: urls[0],
+                username: post_username[0],
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function (data) {
+                container_works(first_part, progress_part);
+                $('.follow_count').html('');
+                $('.follow_count').append("Your Follow Count is "+data);
+                get_followers();
+            },
+            error: function (error) {
+                console.log(error);
+                container_works(progress_part, first_part);
+                error_txt()
+            }
+        });
+    });
+
+    function move() {
+      if (i == 0) {
+        i = 1;
+        var elem = document.getElementById("myBar");
+        var count = $(".progress-count");
+        var width = 0;
+        var id = setInterval(frame, 700);
+        function frame() {
+          if (width >= 100) {
+            count.html('');
+            count.html(width + "%");
+            clearInterval(id);
+            i = 0;
+          }else {
+              count.html('');
+              count.html(width + "%");
+              width = parseInt(width) + 4;
+              elem.style.width = width + "%";}
+        }
+      }
+    }
+
+
+    function get_followers() {
+        move();
+        let text = ['Bot Reached', 'Logged In', 'Your Acc. Has Been Followed', 'Closing Bot...'];
+        var count = 0;
+        function changeText() {
+            if (count === 4){
+                clearInterval(updating);
+            }
+            else{
+                $('.updated_text').fadeOut('slow');
+                $(".update_text").html('<h3 class="updated_text" style="color: #4A00E0; font-weight: 700;">'+ text[count] +'</h3>');
+                setTimeout(function () {
+                    count < 4 ? count++ : count = 0;
+                }, 13000);
+            }
+        }
+        var updating = setInterval(changeText, 1000);
+        $('.btn').prop("disabled", false);
+        $.ajax({
+            url: '{% url 'bot' %}',
+            type: 'POST',
+            data: {
+                url_1: urls[0],
+                username: post_username[0],
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function (data) {
+                $('.you_got').html('');
+                $('.you_got').append(data);
+                $.ajax({
+                    url: '{% url 'follow_count' %}',
+                    type: 'POST',
+                    data: {
+                        url_1: urls[0],
+                        username: post_username[0],
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                    },
+                    success: function (data) {
+                        container_works(progress_part, more_part);
+                        $('.follow_count').html('');
+                        $('.follow_count').append("Your Follow Count is "+data);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        container_works(progress_part, first_part);
+                        error_txt()
+                    }
+                });
+            },
+            error: function (error) {
+                console.log(error);
+                container_works(progress_part, first_part);
+                error_txt()
+            }
+        });
+    }
+    function error_txt() {
+        $('.error_txt').html('');
+        $('.error_txt').append('Network Problem... Please Try Again Later !!!')
+    }
+    </script>
+{% endblock navbar %}

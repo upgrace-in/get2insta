@@ -1,0 +1,1 @@
+web: gunicorn get2insta.wsgi
